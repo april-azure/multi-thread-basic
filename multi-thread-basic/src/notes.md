@@ -26,4 +26,9 @@ isDone() -> check if completed.
 get() -> fetch result
 
 Thread.yield()
-Thead.sleep()
+Thead.sleep(): stop task execution for a given time period. 
+
+6.Priority of Threads
+High priority threads run more often
+getPriority()
+setPriority()

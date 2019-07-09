@@ -1,3 +1,4 @@
+import java.util.concurrent.TimeUnit;
 
 public class LightOff implements Runnable{
 	private final int id;
@@ -17,10 +18,18 @@ public class LightOff implements Runnable{
 
 	@Override
 	public void run() {
-		while(taskCount > 0) {
-			status(); 
-			taskCount--; 
-			Thread.yield();
+		try {
+			while(taskCount > 0) {
+				status(); 
+				taskCount--; 
+				//Thread.yield();
+				
+					TimeUnit.MICROSECONDS.sleep(100);
+				} 
+			}
+		catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }
